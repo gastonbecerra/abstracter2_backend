@@ -27,6 +27,14 @@ router.route('/first/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/next/').get((req, res) => {
+    Abstract.findOne({
+        "tipo" : { "$exists" : false } 
+     })
+     .then(abstract => res.json(abstract._id))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
     const input_url = req.body.input_url;
     const titulo = req.body.titulo;
