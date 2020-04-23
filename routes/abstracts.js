@@ -1,6 +1,10 @@
 const router = require('express').Router();
 let Abstract = require('../models/abstracts.model');
 
+router.route('/test').get((req, res) => {
+    res.json("hola") 
+ });  
+
 router.route('/').get((req, res) => {
   Abstract.find()
     .then(abstract => res.json(abstract))
