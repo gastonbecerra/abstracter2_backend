@@ -8,21 +8,11 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/count').get((req, res) => {
-    /*
-    Abstract.countDocuments({
-        "tipo" : { "$exists" : false } 
-     })
-     .then(abstract => res.json(abstract.countDocuments()))
-    .catch(err => res.status(400).json('Error: ' + err));
-     */
-
-    Abstract.countDocuments({
+     Abstract.countDocuments({
         "tipo" : { "$exists" : false } 
         }, function (err, count) {
         res.json(count);
       });
-
-    // "corriente" : { "$exists" : false } 
 });
 
 router.route('/first/').get((req, res) => {
@@ -31,8 +21,6 @@ router.route('/first/').get((req, res) => {
      })
      .then(abstract => res.json(abstract))
     .catch(err => res.status(400).json('Error: ' + err));
-
-    // "corriente" : { "$exists" : false } 
 });
 
 router.route('/add').post((req, res) => {
